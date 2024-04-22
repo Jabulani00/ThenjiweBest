@@ -1,0 +1,7 @@
+{
+  "name": "StoreRoom",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
