@@ -1,0 +1,55 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+     Slips
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-segment value="slip">
+    <ion-segment-button value="custom" routerLink="/storeroom">
+      <ion-label>StoreRoom</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="storeroom" routerLink="/add-storeroom">
+      <ion-label>Add To Storeroom</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="move" routerLink="/move">
+      <ion-label>Move to Store</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="view" routerLink="/view">
+      <ion-label>View Store</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="analytics" routerLink="/analytics">
+      <ion-label>Analytics</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="slip" routerLink="/slip">
+      <ion-label>View Slips</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+  <ion-list>
+    <ion-item *ngFor="let slip of slips">
+      <ion-card class="invoice-card">
+        <ion-card-header>
+          <ion-card-title>{{ slip.title }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-list>
+            <ion-item *ngFor="let item of slip.items">
+              <ion-label>
+                <h2>{{ item.name }}</h2>
+                <p>Quantity: {{ item.quantity }}</p>
+                <p>Category: {{ item.category }}</p>
+                <p>Barcode: {{ item.barcode }}</p>
+                <p>Description: {{ item.description }}</p>
+                <p>Date of Pickup: {{ item.dateOfPickup }}</p>
+                <p>Time of Pickup: {{ item.timeOfPickup }}</p>
+              </ion-label>
+            </ion-item>
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+    </ion-item>
+  </ion-list>
+</ion-content>

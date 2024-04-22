@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Analytics
+    </ion-title>
+    <ion-icon routerLink="/home" slot="end" name="arrow-back-outline" class="animated fadeInRight"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-segment value="analytics">
+    <ion-segment-button value="custom" routerLink="/storeroom">
+      <ion-label>StoreRoom</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="storeroom" routerLink="/add-storeroom">
+      <ion-label>Add To Storeroom</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="move" routerLink="/move">
+      <ion-label>Move to Store</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="view" routerLink="/view">
+      <ion-label>View Store</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="analytics" routerLink="/analytics">
+      <ion-label>Analytics</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="slip" routerLink="/slip">
+      <ion-label>View Slips</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+  <div class="scroll-container">
+    <p class="pp animated fadeInUp">STORE INVENTORY</p>
+    <div class="chart-container">
+      <br>
+      <canvas id="quantityByCategoryChart" class="animated zoomIn"></canvas>
+    </div>
+    <br><br>
+    <p class="pp animated fadeInUp">STOREROOM INVENTORY</p>
+    <div class="chart-container">
+      <br>
+      <canvas id="quantityByCategoryStorommChart" class="animated zoomIn"></canvas>
+    </div>
+    <br><br>
+    <p class="pp animated fadeInUp">TOTAL CATEGORY COMPARISON ON BOTH STORE AND STOREROOM</p>
+    <canvas id="categoryComparisonChart" class="animated zoomIn"></canvas>
+    <br><br>
+    <p class="pp animated fadeInUp">TOTAL PRODUCT QUANTITIES</p>
+    <canvas id="totalQuantitiesChart" class="animated zoomIn"></canvas>
+    <br><br>
+    <p class="pp animated fadeInUp">BEST PERFOMING PRODUCT</p>
+    <canvas id="updateFrequencyChart" class="animated zoomIn"></canvas>
+  </div>
+</ion-content>

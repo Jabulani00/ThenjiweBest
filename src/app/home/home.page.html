@@ -7,14 +7,24 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-segment value="custom">
+    <ion-segment-button value="custom" routerLink="/storeroom">
+      <ion-label>StoreRoom</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="storeroom" routerLink="/add-storeroom">
+      <ion-label>Add To Storeroom</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="move" routerLink="/move">
+      <ion-label>Move to Store</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="view" routerLink="/view">
+      <ion-label>View Store</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="analytics" routerLink="/analytics">
+      <ion-label>Analytics</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="slip" routerLink="/slip">
+      <ion-label>View Slips</ion-label>
+    </ion-segment-button>
+  </ion-segment>
 </ion-content>
