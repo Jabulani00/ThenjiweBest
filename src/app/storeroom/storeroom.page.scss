@@ -1,0 +1,62 @@
+
+  
+  /* Styling for ion-segment */
+  ion-segment {
+    display: flex;
+    justify-content: space-between;
+    overflow-x: auto; /* Enable horizontal scrolling */
+  }
+  
+  /* Centering ion-segment-button labels */
+  ion-segment-button ion-label {
+    text-align: center;
+  }
+  
+  /* Styling for ion-select */
+  ion-select {
+    width: 100%;
+  }
+  
+  /* Styling for ion-card */
+  ion-card {
+    margin: 10px;
+  }
+  
+  /* Styling for ion-button inside ion-card */
+  ion-button {
+    --border-radius: 10px; /* Rounded corners */
+  }
+  
+  /* Styling for ion-modal */
+  ion-modal {
+    --background: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+  }
+  
+ 
+ 
+  /* Styling for ion-title */
+  ion-title {
+    color: #000000; /* Title color */
+  }
+  
+  /* Styling for ion-icon */
+  ion-icon {
+    color: #000000; /* Icon color */
+  }
+  
+  /* Styling for ion-label */
+  ion-label {
+    color: #000000; /* Label color */
+  }
+  
+  /* Styling for ion-toolbar */
+
+  
+  /* Styling for thumbnail images */
+  .thumbnail {
+    max-width: 100px; /* Maximum width for thumbnail */
+    max-height: 100px; /* Maximum height for thumbnail */
+    display: block;
+    margin: auto;
+  }
+  

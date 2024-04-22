@@ -1,29 +1,43 @@
 <ion-header>
-  <ion-toolbar >
-    <ion-title>
-      Login
-    </ion-title>
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content class="ion-padding" style="--background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('assets/v.jpg') no-repeat center / cover; height: 100vh; display: flex; align-items: center;">
   <div class="container">
-    <div class="card">
-      <h1>Login</h1>
-      <form>
-       
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" [(ngModel)]="email" name="email" id="email" placeholder="Enter your email">
-        </div>
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" [(ngModel)]="password" name="password" id="password" placeholder="Enter your password">
-        </div>
-        <button (click)="login()">LOGIN</button>
-      </form>
-      <p>Don't have an account? <a routerLink="/register">sign-up</a></p>
-      <p><a routerLink="/reset">reset</a></p>
-    </div>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Login</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <form>
+          <ion-list>
+            <ion-item>
+              <ion-label position="floating">Email</ion-label>
+              <ion-input type="email" [(ngModel)]="email" name="email"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Password</ion-label>
+              <ion-input type="password" [(ngModel)]="password" name="password"></ion-input>
+            </ion-item>
+          </ion-list>
+          <ion-button color="tertiary"  fill="outline" expand="block" (click)="login()">LOGIN</ion-button>
+        </form>
+        <ion-row class="ion-justify-content-between">
+          <ion-col>
+            <p>Don't have an account?</p>
+          </ion-col>
+          <ion-col>
+            <ion-button color="tertiary"  fill="outline" routerLink="/register">Sign Up</ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button color="tertiary"  fill="outline" routerLink="/reset">Reset Password</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
   </div>
 </ion-content>

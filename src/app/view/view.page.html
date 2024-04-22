@@ -5,9 +5,9 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" style="--background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('assets/v.jpg') no-repeat center / cover; height: 100vh; display: flex; align-items: center; justify-content: center;">
 
-  <ion-segment value="view">
+  <ion-segment value="view" mode="md" scrollable>
     <ion-segment-button value="custom" routerLink="/storeroom">
       <ion-label>StoreRoom</ion-label>
     </ion-segment-button>
@@ -43,10 +43,10 @@
     <ion-label>Filter by Quantity</ion-label>
     <ion-select [(ngModel)]="selectedQuantityRange" (ionChange)="filterInventory()">
       <ion-select-option value="">All</ion-select-option>
-      <ion-select-option value="tooLow">Too Low</ion-select-option>
-      <ion-select-option value="runningLow">Running Low</ion-select-option>
-      <ion-select-option value="middle">Middle</ion-select-option>
-      <ion-select-option value="full">Full</ion-select-option>
+      <ion-select-option value="tooLow">10 => Quantity</ion-select-option>
+      <ion-select-option value="runningLow">20 to 11</ion-select-option>
+      <ion-select-option value="middle">49 to 21</ion-select-option>
+      <ion-select-option value="full">50 OR Above</ion-select-option>
     </ion-select>
   </ion-item>
 
@@ -81,7 +81,7 @@
     <ion-row class="ion-no-padding">
      
       <ion-col>
-        <ion-button (click)="openModal(item.imageUrl, item.name)" class="view" expand="block">
+        <ion-button color="tertiary"  fill="outline" (click)="openModal(item.imageUrl, item.name)" class="view" expand="block">
           <ion-icon name="eye-outline"></ion-icon> View
         </ion-button>
       </ion-col>

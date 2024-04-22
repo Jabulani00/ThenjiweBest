@@ -4,18 +4,31 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" class="ion-padding" style="--background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('assets/v.jpg') no-repeat center / cover; height: 100vh; display: flex; align-items: center;">
   <div class="container">
-    <div class="card">
-      <h1>Reset Password</h1>
-      <form (ngSubmit)="resetPassword()">
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" placeholder="Enter your email" [(ngModel)]="email" name="email">
-        </div>
-        <button type="submit">Reset</button>
-      </form>
-      <p>Already have an account? <a routerLink="/login">Login</a></p>
-    </div>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Reset Password</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <form (ngSubmit)="resetPassword()">
+          <ion-list>
+            <ion-item>
+              <ion-label position="floating">Email</ion-label>
+              <ion-input type="email" [(ngModel)]="email" name="email"></ion-input>
+            </ion-item>
+          </ion-list>
+          <ion-button color="tertiary"  fill="outline" type="submit" expand="block">Reset</ion-button>
+        </form>
+        <ion-row>
+          <ion-col>
+            <p>Already have an account?</p>
+          </ion-col>
+          <ion-col>
+            <ion-button color="tertiary"  fill="outline" class="button" fill="clear" routerLink="/login">Login</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
   </div>
 </ion-content>

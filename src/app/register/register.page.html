@@ -1,40 +1,51 @@
 <ion-header>
-  <ion-toolbar >
+  <ion-toolbar>
     <ion-title>Sign Up</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-list>
-    <ion-item>
-      <ion-label position="floating">Name</ion-label>
-      <ion-input type="text" [(ngModel)]="name"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label position="floating">Email</ion-label>
-      <ion-input type="email" [(ngModel)]="email"></ion-input>
-    </ion-item>
-
-
-    
-
-    <ion-item>
-      <ion-label position="floating">Password</ion-label>
-      <ion-input type="password" [(ngModel)]="password"></ion-input>
-    </ion-item>
-
-
-    <ion-item>
-      <ion-label position="floating">Confirm Password</ion-label>
-      <ion-input type="password" [(ngModel)]="confirmPassword"></ion-input>
-    </ion-item>
-  </ion-list>
-
-  <div class="ion-padding">
-    <ion-button expand="block" (click)="register()">Sign Up</ion-button>
+<ion-content class="ion-padding" style="--background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('assets/v.jpg') no-repeat center / cover; height: 100vh; display: flex; align-items: center;">
+  <div class="container">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Sign Up</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <form>
+          <ion-list>
+            <ion-item>
+              <ion-label position="floating">Name</ion-label>
+              <ion-input type="text" [(ngModel)]="name" name="name"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Email</ion-label>
+              <ion-input type="email" [(ngModel)]="email" name="email"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Password</ion-label>
+              <ion-input type="password" [(ngModel)]="password" name="password"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Confirm Password</ion-label>
+              <ion-input type="password" [(ngModel)]="confirmPassword" name="confirmPassword"></ion-input>
+            </ion-item>
+          </ion-list>
+          <ion-button color="tertiary"  fill="outline" expand="block" (click)="register()">Sign Up</ion-button>
+        </form>
+        <ion-row class="ion-justify-content-between">
+          <ion-col>
+            <p>Already have an account?</p>
+          </ion-col>
+          <ion-col>
+            <ion-button  color="tertiary"  fill="outline" routerLink="/login">Login</ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button color="tertiary"  fill="outline" routerLink="/reset">Reset Password</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
   </div>
-
-  <p>Already have an account? <a routerLink="/login">sign-up</a></p>
-      <p>........................<a routerLink="/reset">reset</a></p>
 </ion-content>

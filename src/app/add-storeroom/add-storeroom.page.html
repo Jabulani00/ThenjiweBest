@@ -1,17 +1,21 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title class="animated fadeInDown">Add Inventory Storeroom</ion-title>
+    <ion-buttons slot="start">
+      <ion-button routerLink="/home">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Add Inventory Storeroom</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="closeScanner()">
         <ion-icon slot="icon-only" name="close"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-icon style="font-size: 30px; font-weight: bolder;" routerLink="/home" slot="start" name="arrow-back-outline" class="animated fadeInRight"></ion-icon>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-segment value="storeroom">
+  <ion-segment value="storeroom" mode="md" scrollable>
     <ion-segment-button value="custom" routerLink="/storeroom">
       <ion-label>StoreRoom</ion-label>
     </ion-segment-button>
@@ -31,91 +35,145 @@
       <ion-label>View Slips</ion-label>
     </ion-segment-button>
   </ion-segment>
-  <ion-card id="container" class="animated zoomIn">
-    <ion-card-header class="ion-text-center">
-      <ion-card-title class="animated fadeInUp">Deliver Inventory to StoreRoom</ion-card-title>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Deliver Inventory to StoreRoom</ion-card-title>
     </ion-card-header>
 
     <ion-card-content>
       <ion-item>
-        <ion-toggle labelPlacement="end" [(ngModel)]="toggleChecked" class="animated fadeInLeft">Type barcode</ion-toggle>
+        <ion-label>Type barcode</ion-label>
+        <ion-toggle [(ngModel)]="toggleChecked"></ion-toggle>
       </ion-item>
 
-      <ion-item class="animated fadeInRight">
-        <ion-label position="floating">Barcode</ion-label>
-        <ion-input type="text" [(ngModel)]="barcode" (ionChange)="searchProductByBarcode()" *ngIf="toggleChecked"></ion-input>
-        <ion-button expand="block" (click)="scanBarcode()" *ngIf="!toggleChecked" class="animated pulse infinite">
-          <ion-icon name="barcode-outline"></ion-icon> Scan
-        </ion-button>
-      </ion-item>
+      <ion-row>
+        <ion-col size="12" *ngIf="toggleChecked">
+          <ion-item>
+            <ion-label position="floating">Barcode</ion-label>
+            <ion-input type="text" [(ngModel)]="barcode" (ionChange)="searchProductByBarcode()"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="12" *ngIf="!toggleChecked">
+          <ion-button color="tertiary"  fill="outline" expand="block" (click)="scanBarcode()">
+            <ion-icon color="tertiary" name="barcode-outline"></ion-icon> Scan
+          </ion-button>
+        </ion-col>
+      </ion-row>
 
-      <ion-button expand="block" id="fileInput" color="medium" class="custom-file-input animated bounceIn" (click)="takePicture()">
-        <ion-icon name="camera"></ion-icon> Take Picture
-      </ion-button>
+      <ion-row>
+        <ion-col size="12">
+          <ion-button color="tertiary"  fill="outline" expand="block" (click)="takePicture()">
+            <ion-icon name="camera"></ion-icon> Take Picture
+          </ion-button>
+        </ion-col>
+      </ion-row>
 
-      <ion-item class="animated fadeInLeft">
-        <ion-label position="floating">Item Name</ion-label>
-        <ion-input type="text" [(ngModel)]="itemName"></ion-input>
-      </ion-item>
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="floating">Item Name</ion-label>
+            <ion-input type="text" [(ngModel)]="itemName"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
 
-      <ion-item class="animated fadeInRight">
-        <ion-label>Category</ion-label>
-        <ion-select [(ngModel)]="itemCategory">
-          <ion-select-option value="Cleaning Detergents">Cleaning Detergents</ion-select-option>
-          <ion-select-option value="Plastics">Plastics</ion-select-option>
-          <ion-select-option value="Cleaning Equipment">Cleaning Equipment</ion-select-option>
-        </ion-select>
-      </ion-item>
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label>Category</ion-label>
+            <ion-select [(ngModel)]="itemCategory">
+              <ion-select-option value="Cleaning Detergents">Cleaning Detergents</ion-select-option>
+              <ion-select-option value="Plastics">Plastics</ion-select-option>
+              <ion-select-option value="Cleaning Equipment">Cleaning Equipment</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
 
-      <ion-item class="animated fadeInLeft">
-        <ion-label position="floating">Description</ion-label>
-        <ion-textarea [(ngModel)]="itemDescription"></ion-textarea>
-      </ion-item>
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="floating">Description</ion-label>
+            <ion-textarea [(ngModel)]="itemDescription"></ion-textarea>
+          </ion-item>
+        </ion-col>
+      </ion-row>
 
-      <ion-item class="animated fadeInRight">
-        <ion-label position="floating">Quantity</ion-label>
-        <ion-input type="number" [(ngModel)]="itemQuantity"></ion-input>
-      </ion-item>
+      <ion-row>
+        <ion-col size="6">
+          <ion-item>
+            <ion-label position="floating">Quantity</ion-label>
+            <ion-input type="number" [(ngModel)]="itemQuantity"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="6">
+          <ion-item>
+            <ion-label position="floating">Size of Product</ion-label>
+            <ion-input type="text" [(ngModel)]="sizeProduct"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
 
-      <ion-item class="animated fadeInRight">
-        <ion-label position="floating">Size of Product</ion-label>
-        <ion-input type="text" [(ngModel)]="sizeProduct"></ion-input>
-      </ion-item>
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="floating">Delivery Name</ion-label>
+            <ion-input type="text" [(ngModel)]="pickersDetails"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
 
-      <ion-item class="animated fadeInLeft">
-        <ion-label position="floating">Delivery Name</ion-label>
-        <ion-input type="text" [(ngModel)]="pickersDetails"></ion-input>
-      </ion-item>
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="floating">Delivery Email</ion-label>
+            <ion-input type="text" [(ngModel)]="pickersDetailsEmail"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
 
-      <ion-item class="animated fadeInRight">
-        <ion-label position="floating">Delivery Email</ion-label>
-        <ion-input type="text" [(ngModel)]="pickersDetailsEmail"></ion-input>
-      </ion-item>
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="floating">Phone Number</ion-label>
+            <ion-input type="text" [(ngModel)]="phone"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
 
-      <ion-item class="animated fadeInLeft">
-        <ion-label position="floating">Phone Number</ion-label>
-        <ion-input type="text" [(ngModel)]="phone"></ion-input>
-      </ion-item>
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="floating">Company</ion-label>
+            <ion-input type="text" [(ngModel)]="Cumpany"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
 
-      <ion-item class="animated fadeInRight">
-        <ion-label position="floating">Company</ion-label>
-        <ion-input type="text" [(ngModel)]="Cumpany"></ion-input>
-      </ion-item>
+      <ion-row>
+        <ion-col size="6">
+          <ion-item>
+            <ion-label position="fixed">Date of Pickup</ion-label>
+            <ion-input type="date" [(ngModel)]="dateOfPickup"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="6">
+          <ion-item>
+            <ion-label position="floating">Time of Pickup</ion-label>
+            <ion-input type="time" [(ngModel)]="timeOfPickup"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
 
-      <ion-item class="animated fadeInLeft">
-        <ion-label position="fixed">Date of Pickup</ion-label>
-        <ion-input type="date" [(ngModel)]="dateOfPickup"></ion-input>
-      </ion-item>
-
-      <ion-item class="animated fadeInRight">
-        <ion-label position="floating">Time of Pickup</ion-label>
-        <ion-input type="time" [(ngModel)]="timeOfPickup"></ion-input>
-      </ion-item>
-
-   
-
-      <ion-button expand="block" (click)="addItem()" class="animated zoomIn">Add Item</ion-button>
-      <ion-button expand="block" (click)="generateSlip()" class="animated zoomIn">Print Slip</ion-button>
+      <ion-row>
+        <ion-col size="6">
+          <ion-button color="tertiary"  fill="outline" expand="block" (click)="addItem()">Add Item</ion-button>
+        </ion-col>
+        <ion-col size="6">
+          <ion-button color="tertiary"  fill="outline" expand="block" (click)="generateSlip()">Print Slip</ion-button>
+        </ion-col>
+      </ion-row>
     </ion-card-content>
   </ion-card>
 </ion-content>
